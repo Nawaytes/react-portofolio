@@ -1,0 +1,9 @@
+.photo-container .photo {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 50%;
+    color: aliceblue;
+  }
