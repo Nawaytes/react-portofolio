@@ -1,28 +1,27 @@
+import { Helmet } from "react-helmet";
 import "./home.css";
 import RecentPosts from "./home/recentPosts";
 export default function Home() {
   return (
     <>
+      <Helmet>
+        <title>Galih Setyawan</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+      </Helmet>
       <div className='container-header'>
         <div className='header'>
           <div className='header-grid'>
-            <div>
+            <div className='info-container'>
               <div
                 style={{
                   fontSize: 40,
                   fontWeight: "bold",
                 }}
               >
-                <div>Hi, I am Galih, </div>
-                <div>Backend Developer</div>
+                <div className='name'>Hi, I am Galih, </div>
+                <div className='job'>Backend Developer</div>
               </div>
-              <div
-                style={{
-                  textAlign: "justify",
-                  marginTop: 40,
-                  paddingRight: 40,
-                }}
-              >
+              <div className='description'>
                 I am a professional <strong>back end developer</strong> who
                 thrives on challenges. I have a strong desire to expand my
                 knowledge, always eager to explore new technologies. I am
