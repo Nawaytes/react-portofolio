@@ -4,13 +4,16 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./views/home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Profile from "./views/Profile";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />}></Route>
-      </Routes>
+      {/* <Routes>
+        <Route path='/' element={<Home />}></Route> */}
+      {/* <Route path='/nav' element={<Profile />}></Route> */}
+      {/* </Routes> */}
+      <Home />
     </BrowserRouter>
   </React.StrictMode>
 );
