@@ -39,9 +39,6 @@ export default function ToDoList() {
     setDone(filterDone);
   }, [setListTodo, done]);
 
-  // useEffect(() => {
-  // }, [done]);
-
   return (
     <Box position={"relative"} h={"100vh"}>
       <Box
