@@ -6,11 +6,12 @@ import Home from "./views/home";
 import NavBar from "./components/NavBar";
 import { useState } from "react";
 import Footer from "./components/footer";
+import NotFound from "./components/NotFound";
 
 function App() {
   let [showNavbar, setShowNavbar] = useState(1);
   const changeNavbarColor = () => {
-    if (window.scrollY > 100) setShowNavbar(0);
+    if (window.scrollY > 20) setShowNavbar(0);
     else setShowNavbar(1);
   };
   window.addEventListener("scroll", changeNavbarColor);
@@ -22,6 +23,7 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route exact path='/finish-it' element={<Profile />} />
           <Route exact path='/exercise-m-6' element={<ToDoList />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </Router>
       <Footer />

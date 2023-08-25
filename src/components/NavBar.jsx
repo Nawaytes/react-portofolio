@@ -7,8 +7,6 @@ export default function NavBar(props) {
     <Box
       height={"10vh"}
       bgColor={"#21243d"}
-      position={"fixed"}
-      top={"0px"}
       width={"100vw"}
       transition={"all .3s"}
       opacity={props.isVisible ? 1 : 0}

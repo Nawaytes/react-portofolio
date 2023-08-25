@@ -12,6 +12,7 @@ export default function Footer() {
       bgColor={"#21243d"}
       color={"white"}
       gap={"5px"}
+      height={"30vh"}
     >
       <Text fontSize={"2xl"}>Contact me</Text>
       <HStack justifyContent={"left"}>
