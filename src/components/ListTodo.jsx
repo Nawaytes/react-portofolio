@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export default function ListTodo(props) {
   let [isChecked, setIsChecked] = useState(false);
-  // console.log(isChecked);
   function checkTodo() {
     setIsChecked(!isChecked);
     props.check(isChecked, props.name);

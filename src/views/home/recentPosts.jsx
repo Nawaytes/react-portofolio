@@ -2,7 +2,7 @@ import "../home.css";
 import Post from "./post";
 export default function RecentPosts() {
   return (
-    <div className='container-recent-post'>
+    <div className='container-recent-post' id='miniproject'>
       <Post
         title='Mengatasi Storage Penuh Saat Proses Build Docker'
         date='28 Jul 2023'

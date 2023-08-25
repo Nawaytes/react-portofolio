@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
+import MiniProjects from "../components/MiniProjects";
 import "./home.css";
-import RecentPosts from "./home/recentPosts";
 export default function Home() {
   return (
     <>
@@ -36,7 +36,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <RecentPosts />
+      <MiniProjects />
+      {/* <RecentPosts /> */}
     </>
   );
 }

@@ -40,10 +40,9 @@ export default function ToDoList() {
   }, [setListTodo, done]);
 
   return (
-    <Box position={"relative"} h={"100vh"}>
+    <Box paddingBottom={"10vh"} marginTop={"100px"}>
       <Box
         margin={"auto"}
-        margin-top={"200px"}
         width={"400px"}
         border={"1px"}
         padding={"20px"}
