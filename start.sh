@@ -1,2 +1,3 @@
 # yarn start
-npm start
+# npm start
+serve -s build

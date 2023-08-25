@@ -1,7 +1,7 @@
 {
   "name": "react-portofolio",
   "version": "0.1.0",
-  "homepage": "/build",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",

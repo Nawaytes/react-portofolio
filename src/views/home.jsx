@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet";
 import "./home.css";
 import RecentPosts from "./home/recentPosts";
+import Profile from "./Profile";
+import ToDoList from "./exercise-m-6/ToDoList";
 export default function Home() {
   return (
     <>
