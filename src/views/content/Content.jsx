@@ -1,29 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Content.css";
+import { Box, Button } from "@chakra-ui/react";
 export default function Content() {
   const [counter, setCounter] = useState(0);
+  function filterNegative(value) {
+    return value < 0 ? 0 : value;
+  }
   return (
     <main>
       <div className='content-title'>Service</div>
       <div className='service-container'>
-        <div className='service'>
+        <Box bgColor={"aqua"} className='service'>
           <span>Counter</span>
           <span>{counter}</span>
-          <button
+          <Button
+            margin={"10px"}
+            colorScheme='linkedin'
             onClick={() => {
               setCounter(counter + 1);
             }}
           >
             Increment
-          </button>
-          <button
+          </Button>
+          <Button
+            margin={"10px"}
+            colorScheme='red'
             onClick={() => {
-              setCounter(counter - 1);
+              setCounter(filterNegative(counter - 1));
             }}
           >
             Decrement
-          </button>
-        </div>
+          </Button>
+        </Box>
       </div>
     </main>
   );

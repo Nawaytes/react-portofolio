@@ -3,18 +3,25 @@ import ReactDOM from 'react-dom/client';
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./views/home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
 import Profile from "./views/Profile";
+import { ChakraProvider } from "@chakra-ui/react";
+import ToDoList from "./views/exercise-m-6/ToDoList";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      {/* <Routes>
-        <Route path='/' element={<Home />}></Route> */}
-      {/* <Route path='/nav' element={<Profile />}></Route> */}
-      {/* </Routes> */}
-      <Home />
-    </BrowserRouter>
+    <Router>
+      <ChakraProvider>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/nav' element={<Profile />} />
+          <Route path='/exercise-m-6' element={<ToDoList />} />
+        </Routes>
+      </ChakraProvider>
+      {/* <Home /> */}
+    </Router>
   </React.StrictMode>
 );
 

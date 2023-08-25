@@ -1,1 +1,2 @@
-yarn start
+# yarn start
+npm start
