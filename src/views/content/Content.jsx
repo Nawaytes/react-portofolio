@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import "./Content.css";
 import { Box, Button } from "@chakra-ui/react";
+import { useState } from "react";
+import "./Content.css";
 export default function Content() {
   const [counter, setCounter] = useState(0);
   function filterNegative(value) {

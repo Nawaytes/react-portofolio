@@ -1,12 +1,4 @@
-import {
-  AbsoluteCenter,
-  Box,
-  Button,
-  Center,
-  Input,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Center, Input, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import ListTodo from "../../components/ListTodo";
 
@@ -19,6 +11,7 @@ export default function ToDoList() {
     if (todoName === "") return;
     if (setListTodo.includes(todoName)) return;
     setListTodoState((arr) => [...arr, todoName]);
+    setTodoName("");
   }
   function removeTodoList(e) {
     console.log(e.target.value);
@@ -40,23 +33,32 @@ export default function ToDoList() {
   }
 
   useEffect(() => {
-    setDone(done.filter((todo) => setListTodo.includes(todo)));
-  }, [setListTodo]);
-
-  useEffect(() => {
+    const doneCopy = [...done];
+    const filterDone = doneCopy.filter((todo) => setListTodo.includes(todo));
     setTotal(done.length);
-  }, [done]);
+    setDone(filterDone);
+  }, [setListTodo, done]);
+
+  // useEffect(() => {
+  // }, [done]);
 
   return (
     <Box position={"relative"} h={"100vh"}>
-      <AbsoluteCenter border={"1px"} padding={"20px"} borderColor={"gray.200"}>
+      <Box
+        margin={"auto"}
+        margin-top={"200px"}
+        width={"400px"}
+        border={"1px"}
+        padding={"20px"}
+        borderColor={"gray.200"}
+      >
         <Stack
           spacing={5}
           direction={"column"}
           border={"1px"}
           borderColor={"gray.200"}
           padding={"10px"}
-          width={"400px"}
+          // width={"400px"}
         >
           <Center>
             <Text fontSize={"xl"}>Chores ToDo List</Text>
@@ -82,6 +84,7 @@ export default function ToDoList() {
           <Stack direction={"column"} spacing={5}>
             <span>Add Todo</span>
             <Input
+              value={todoName}
               placeholder='To do name'
               fontSize={"sm"}
               onChange={handleTodoName}
@@ -94,7 +97,7 @@ export default function ToDoList() {
             </Button>
           </Stack>
         </Stack>
-      </AbsoluteCenter>
+      </Box>
     </Box>
   );
 }
