@@ -5,6 +5,7 @@ import ToDoList from "./views/exercise-m-6/ToDoList";
 import Home from "./views/home";
 import NavBar from "./components/NavBar";
 import { useState } from "react";
+import Footer from "./components/footer";
 
 function App() {
   let [showNavbar, setShowNavbar] = useState(1);
@@ -23,6 +24,7 @@ function App() {
           <Route exact path='/exercise-m-6' element={<ToDoList />} />
         </Routes>
       </Router>
+      <Footer />
       {/* <div className='App'>
         <header className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
