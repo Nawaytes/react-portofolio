@@ -1,6 +1,7 @@
 import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import todoListProjectImage from "../assets/mini-projects/todo list.png";
 import finishItProjectImage from "../assets/mini-projects/finish-it.png";
+import ticTacToeProjectImage from "../assets/mini-projects/tic-tac-toe.png";
 import Project from "./Project";
 export default function MiniProjects() {
   return (
@@ -30,7 +31,7 @@ export default function MiniProjects() {
               title={"Finish It"}
             />
             <Project
-              cover={finishItProjectImage}
+              cover={ticTacToeProjectImage}
               url={"/tic-tac-toe"}
               title={"Tic Tac Toe"}
             />

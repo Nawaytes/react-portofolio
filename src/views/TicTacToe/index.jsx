@@ -11,43 +11,33 @@ export default function TicTacToe() {
   ]);
   const [winner, setWinner] = useState(null);
   const [draw, setDraw] = useState(false);
-  const [turn, setTurn] = useState(0);
+  const [turn, setTurn] = useState(1);
 
   const checkWinner = () => {
-    // Check rows
+    // Check rows, columns, and diagonals
     for (let i = 0; i < board.length; i++) {
       if (
-        board[i][0] !== "" &&
-        board[i][0] === board[i][1] &&
-        board[i][0] === board[i][2]
+        (board[i][0] !== "" &&
+          board[i][0] === board[i][1] &&
+          board[i][0] === board[i][2]) ||
+        (board[0][i] !== "" &&
+          board[0][i] === board[1][i] &&
+          board[0][i] === board[2][i])
       ) {
         setWinner(player);
+        return;
       }
     }
-    // Check columns
-    for (let i = 0; i < board.length; i++) {
-      if (
-        board[0][i] !== "" &&
-        board[0][i] === board[1][i] &&
-        board[0][i] === board[2][i]
-      ) {
-        setWinner(player);
-      }
-    }
-    // Check diagonals
     if (
-      board[0][0] !== "" &&
-      board[0][0] === board[1][1] &&
-      board[0][0] === board[2][2]
+      (board[0][0] !== "" &&
+        board[0][0] === board[1][1] &&
+        board[0][0] === board[2][2]) ||
+      (board[0][2] !== "" &&
+        board[0][2] === board[1][1] &&
+        board[0][2] === board[2][0])
     ) {
       setWinner(player);
-    }
-    if (
-      board[0][2] !== "" &&
-      board[0][2] === board[1][1] &&
-      board[0][2] === board[2][0]
-    ) {
-      setWinner(player);
+      return;
     }
   };
 
@@ -56,6 +46,7 @@ export default function TicTacToe() {
     for (let i = 0; i < board.length; i++) {
       if (board[i].includes("")) {
         isDraw = false;
+        break;
       }
     }
     if (isDraw) {
@@ -64,7 +55,7 @@ export default function TicTacToe() {
   };
 
   const handleClick = (row, col) => {
-    if (board[row][col] === "") {
+    if (!winner && !draw && board[row][col] === "") {
       const newBoard = [...board];
       newBoard[row][col] = player;
       setBoard(newBoard);
@@ -85,97 +76,29 @@ export default function TicTacToe() {
           width={"fit-content"}
           margin={"auto"}
         >
-          <Box
-            bg={"red.500"}
-            height={"100px"}
-            width={"100px"}
-            onClick={() => {
-              handleClick(0, 0);
-            }}
-          >
-            {board[0][0]}
-          </Box>
-          <Box
-            bg={"red.500"}
-            height={"100px"}
-            width={"100px"}
-            onClick={() => {
-              handleClick(0, 1);
-            }}
-          >
-            {board[0][1]}
-          </Box>
-          <Box
-            bg={"red.500"}
-            height={"100px"}
-            width={"100px"}
-            onClick={() => {
-              handleClick(0, 2);
-            }}
-          >
-            {board[0][2]}
-          </Box>
-          <Box
-            bg={"red.500"}
-            height={"100px"}
-            width={"100px"}
-            onClick={() => {
-              handleClick(1, 0);
-            }}
-          >
-            {board[1][0]}
-          </Box>
-          <Box
-            bg={"red.500"}
-            height={"100px"}
-            width={"100px"}
-            onClick={() => {
-              handleClick(1, 1);
-            }}
-          >
-            {board[1][1]}
-          </Box>
-          <Box
-            bg={"red.500"}
-            height={"100px"}
-            width={"100px"}
-            onClick={() => {
-              handleClick(1, 2);
-            }}
-          >
-            {board[1][2]}
-          </Box>
-          <Box
-            bg={"red.500"}
-            height={"100px"}
-            width={"100px"}
-            onClick={() => {
-              handleClick(2, 0);
-            }}
-          >
-            {board[2][0]}
-          </Box>
-          <Box
-            bg={"red.500"}
-            height={"100px"}
-            width={"100px"}
-            onClick={() => {
-              handleClick(2, 1);
-            }}
-          >
-            {board[2][1]}
-          </Box>
-          <Box
-            bg={"red.500"}
-            height={"100px"}
-            width={"100px"}
-            onClick={() => {
-              handleClick(2, 2);
-            }}
-          >
-            {board[2][2]}
-          </Box>
+          {board.map((row, rowIndex) =>
+            row.map((cell, colIndex) => (
+              <Box
+                key={`${rowIndex}-${colIndex}`}
+                bg={"gray.100"}
+                height={"100px"}
+                width={"100px"}
+                display='flex'
+                alignItems='center'
+                justifyContent='center'
+                fontSize='3xl'
+                cursor={
+                  cell === "" && !winner && !draw ? "pointer" : "not-allowed"
+                }
+                onClick={() => handleClick(rowIndex, colIndex)}
+              >
+                {cell}
+              </Box>
+            ))
+          )}
         </Grid>
+        {winner && <Text mt={4}>{`Player ${winner} wins!`}</Text>}
+        {draw && !winner && <Text mt={4}>It's a draw!</Text>}
       </Box>
     </Center>
   );
