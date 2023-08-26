@@ -67,7 +67,7 @@ export default function TicTacToe() {
   };
 
   return (
-    <Center>
+    <Center autoFocus>
       <Box minHeight={"600px"} textAlign={"center"}>
         <Text fontSize={"xxx-large"}>Tic Tac Toe</Text>
         <Grid

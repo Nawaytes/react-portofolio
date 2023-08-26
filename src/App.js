@@ -8,6 +8,7 @@ import { useState } from "react";
 import Footer from "./components/footer";
 import NotFound from "./components/NotFound";
 import TicTacToe from "./views/TicTacToe";
+import ScissorPaperRock from "./views/ScissorPaperRock";
 
 function App() {
   let [showNavbar, setShowNavbar] = useState(1);
@@ -25,6 +26,11 @@ function App() {
           <Route exact path='/finish-it' element={<Profile />} />
           <Route exact path='/exercise-m-6' element={<ToDoList />} />
           <Route exact path='/tic-tac-toe' element={<TicTacToe />} />
+          <Route
+            exact
+            path='/scissors-paper-rock'
+            element={<ScissorPaperRock />}
+          />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Router>
