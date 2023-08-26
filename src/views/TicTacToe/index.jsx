@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Grid, Text } from "@chakra-ui/react";
+import { Box, Center, Grid, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
 export default function TicTacToe() {
