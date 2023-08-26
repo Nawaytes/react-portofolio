@@ -16,7 +16,7 @@
 # CMD ["/bin/bash", "-c", "/app/start.sh"]
 
 # Build stage
-FROM node:16.13.1-alpine AS build-stage
+FROM node:18-alpine AS build-stage
 WORKDIR /app
 COPY yarn.lock ./
 COPY package.json ./
@@ -25,7 +25,7 @@ COPY . .
 RUN yarn build
 
 # Final stage
-FROM node:16.13.1-alpine AS final-stage
+FROM node:18-alpine AS final-stage
 WORKDIR /app
 
 # Install bash and serve
