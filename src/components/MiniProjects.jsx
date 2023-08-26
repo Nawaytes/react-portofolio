@@ -29,6 +29,11 @@ export default function MiniProjects() {
               url={"/finish-it"}
               title={"Finish It"}
             />
+            <Project
+              cover={finishItProjectImage}
+              url={"/tic-tac-toe"}
+              title={"Tic Tac Toe"}
+            />
           </Flex>
         </VStack>
       </Box>

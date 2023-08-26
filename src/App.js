@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import { useState } from "react";
 import Footer from "./components/footer";
 import NotFound from "./components/NotFound";
+import TicTacToe from "./views/TicTacToe";
 
 function App() {
   let [showNavbar, setShowNavbar] = useState(1);
@@ -23,6 +24,7 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route exact path='/finish-it' element={<Profile />} />
           <Route exact path='/exercise-m-6' element={<ToDoList />} />
+          <Route exact path='/tic-tac-toe' element={<TicTacToe />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Router>
